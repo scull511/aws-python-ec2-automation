@@ -8,7 +8,7 @@ resource "aws_cloudwatch_event_rule" "stop_ec2_instances" {
 resource "aws_cloudwatch_event_target" "stop_ec2_instances_target" {
   rule = aws_cloudwatch_event_rule.stop_ec2_instances.name
   target_id = "stop_ec2_instances"
-  arn  = aws_lambda_function.ec2_stop_start.arn
+  arn  = aws_lambda_function.ec2_stop.arn
 }
 
 resource "aws_cloudwatch_event_rule" "start_ec2_instances" {
@@ -21,5 +21,5 @@ resource "aws_cloudwatch_event_rule" "start_ec2_instances" {
 resource "aws_cloudwatch_event_target" "start_ec2_instances_target" {
   rule = aws_cloudwatch_event_rule.start_ec2_instances.name
   target_id = "start_ec2_instances"
-  arn  = aws_lambda_function.ec2_stop_start.arn
+  arn  = aws_lambda_function.ec2_start.arn
 }
